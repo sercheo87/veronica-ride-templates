@@ -864,7 +864,8 @@
 				<textElement textAlignment="Center">
 					<font isBold="true"/>
 				</textElement>
-				<text><![CDATA[Total total]]></text>
+				<text><![CDATA[Precio
+total]]></text>
 			</staticText>
 			<staticText>
 				<reportElement style="etiqueta-celda" positionType="Float" mode="Opaque" x="455" y="11" width="50" height="30" forecolor="#FFFFFF" backcolor="#4FB7CD" uuid="503f0ddc-00dd-4408-b889-d4dca1d52bd0">
