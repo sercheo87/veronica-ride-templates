@@ -2,7 +2,7 @@
     <infoTributaria>
         <ambiente>1</ambiente>
         <tipoEmision>1</tipoEmision>
-        <razonSocial>Lorem ipsum dolor sit amet</razonSocial>
+        <razonSocial>Veronica Platform</razonSocial>
         <nombreComercial>Lorem ipsum dolor sit amet</nombreComercial>
         <ruc>0000000000000</ruc>
         <claveAcceso>0000000001000000000000000000000000000000000000000</claveAcceso>
@@ -10,7 +10,9 @@
         <estab>000</estab>
         <ptoEmi>000</ptoEmi>
         <secuencial>000000000</secuencial>
-        <dirMatriz>Lorem ipsum dolor sit amet</dirMatriz>
+        <dirMatriz>Lorem ipsum dolor sit amet neque porro quisquam est qui dolorem ipsum quia dolor sit amet</dirMatriz>
+		<regimenMicroempresas>CONTRIBUYENTE RÉGIMEN MICROEMPRESAS</regimenMicroempresas>
+		<agenteRetencion>00000001</agenteRetencion>
     </infoTributaria>
     <infoFactura>
         <fechaEmision>01/01/2021</fechaEmision>
@@ -75,5 +77,6 @@
         <campoAdicional nombre="Codigo Impuesto ISD">4580</campoAdicional>
         <campoAdicional nombre="Impuesto ISD">15.42x</campoAdicional>
         <campoAdicional nombre="emailCliente">support@rolandopalermo.com</campoAdicional>
+		<campoAdicional nombre="Leyenda">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet</campoAdicional>
     </infoAdicional>
 </factura>
