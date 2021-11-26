@@ -406,7 +406,7 @@
 						<property name="com.jaspersoft.studio.unit.height" value="px"/>
 						<printWhenExpression><![CDATA[$P{withLogo}.equalsIgnoreCase("true")]]></printWhenExpression>
 					</reportElement>
-					<box>
+					<box leftPadding="10" bottomPadding="10" rightPadding="10">
 						<pen lineWidth="0.0"/>
 					</box>
 					<imageExpression><![CDATA[new java.io.ByteArrayInputStream(org.apache.commons.codec.binary.Base64.decodeBase64($P{logo}.getBytes()))]]></imageExpression>
@@ -521,7 +521,7 @@
 						<reportElement positionType="Float" x="0" y="75" width="272" height="15" isRemoveLineWhenBlank="true" uuid="5b2a0a4e-8532-4a93-acb3-72c419d70afd">
 							<property name="com.jaspersoft.studio.unit.height" value="px"/>
 							<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
-							<printWhenExpression><![CDATA[!$F{contribuyenteEspecial}.isEmpty()]]></printWhenExpression>
+							<printWhenExpression><![CDATA[!$F{contribuyenteEspecial}.isEmpty() && $F{contribuyenteEspecial}.compareToIgnoreCase("000") != 0]]></printWhenExpression>
 						</reportElement>
 						<textElement verticalAlignment="Middle" markup="html">
 							<font size="8"/>
@@ -540,7 +540,7 @@
 						</textElement>
 						<textFieldExpression><![CDATA["<b>OBLIGADO A LLEVAR CONTABILIDAD: </b>" + $F{obligadoContabilidad}]]></textFieldExpression>
 					</textField>
-					<textField>
+					<textField textAdjust="StretchHeight">
 						<reportElement positionType="Float" x="0" y="105" width="272" height="15" isRemoveLineWhenBlank="true" uuid="9afe037f-e0e0-4ebe-89b0-3dfc2d685a26">
 							<property name="com.jaspersoft.studio.unit.height" value="px"/>
 							<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
@@ -550,7 +550,7 @@
 							<font size="8"/>
 							<paragraph leftIndent="4"/>
 						</textElement>
-						<textFieldExpression><![CDATA["<b>AGENTE DE RETENCIÓN RESOLUCIÓN N°: </b>" + $F{agenteRetencion}]]></textFieldExpression>
+						<textFieldExpression><![CDATA["<b>AGENTE DE RETENCIÓN RESOLUCIÓN N°: </b>NAC-DNCRASC20-" + $F{agenteRetencion}]]></textFieldExpression>
 					</textField>
 					<textField>
 						<reportElement positionType="Float" x="0" y="120" width="272" height="15" isRemoveLineWhenBlank="true" uuid="b10e7e52-4a92-47de-8099-509ea8b538f6">
@@ -581,162 +581,91 @@
 					<propertyExpression name="net.sf.jasperreports.style.pen.lineColor"><![CDATA[$P{color}]]></propertyExpression>
 				</reportElement>
 			</rectangle>
+			<textField>
+				<reportElement style="etiqueta-texto" positionType="Float" x="1" y="45" width="271" height="15" isRemoveLineWhenBlank="true" uuid="93f3785a-ba83-46d6-9bb4-f69712ebff51">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+					<printWhenExpression><![CDATA[!$F{ordenTrabajo}.isEmpty()]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.0"/>
+				</box>
+				<textElement markup="html">
+					<font size="8"/>
+					<paragraph leftIndent="4"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<b>PREFACTURA:</b> " + $F{ordenTrabajo}]]></textFieldExpression>
+			</textField>
 			<textField textAdjust="StretchHeight">
-				<reportElement style="etiqueta-texto" x="92" y="0" width="276" height="15" forecolor="#000000" uuid="b9d72008-2535-4c36-89a7-15cf86e35c03">
+				<reportElement style="etiqueta-texto" x="1" y="0" width="439" height="15" forecolor="#000000" uuid="798d821e-a460-499f-83a2-ea5d0714ef4a">
 					<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
 					<property name="com.jaspersoft.studio.unit.rightIndent" value="px"/>
 				</reportElement>
-				<textElement textAlignment="Left" verticalAlignment="Middle">
+				<textElement textAlignment="Left" verticalAlignment="Middle" markup="html">
 					<font size="8" isBold="false"/>
-					<paragraph leftIndent="2" rightIndent="2"/>
+					<paragraph leftIndent="4" rightIndent="0"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{razonSocialComprador}]]></textFieldExpression>
+				<textFieldExpression><![CDATA["<b>RAZÓN SOCIAL/NOMBRES Y APELLIDOS:</b> " + $F{razonSocialComprador}]]></textFieldExpression>
 			</textField>
-			<staticText>
-				<reportElement style="etiqueta-texto" positionType="Float" x="0" y="0" width="92" height="15" uuid="ef5e5051-c316-4c43-9168-f4e86d0db9e3">
-					<property name="com.jaspersoft.studio.unit.x" value="px"/>
-					<property name="com.jaspersoft.studio.unit.y" value="px"/>
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-				</reportElement>
-				<box>
-					<pen lineWidth="0.0"/>
-				</box>
-				<textElement verticalAlignment="Middle">
-					<font size="8" isBold="true"/>
-					<paragraph leftIndent="4"/>
-				</textElement>
-				<text><![CDATA[RAZÓN SOCIAL/NOMBRES Y APELLIDOS:]]></text>
-			</staticText>
-			<staticText>
-				<reportElement style="etiqueta-texto" positionType="Float" x="368" y="0" width="92" height="15" uuid="1410464e-f796-40da-ac47-311c21278d58"/>
-				<box>
-					<pen lineWidth="0.0"/>
-				</box>
-				<textElement verticalAlignment="Middle">
-					<font size="8" isBold="true"/>
-					<paragraph leftIndent="4"/>
-				</textElement>
-				<text><![CDATA[C.I./RUC:]]></text>
-			</staticText>
 			<textField>
-				<reportElement style="etiqueta-texto" positionType="Float" x="460" y="0" width="95" height="15" uuid="cc3bf496-87ea-4fd0-bc22-44fcdd2a2b92">
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				<reportElement style="etiqueta-texto" positionType="Float" x="440" y="0" width="115" height="15" uuid="023fc3cc-ec8e-43ae-8ad4-ccf2ff2d6bf5">
+					<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
 				</reportElement>
 				<box>
 					<pen lineWidth="0.0"/>
 				</box>
-				<textElement verticalAlignment="Middle">
+				<textElement verticalAlignment="Middle" markup="html">
 					<font size="8"/>
-					<paragraph leftIndent="2"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{identificacionComprador}]]></textFieldExpression>
-			</textField>
-			<staticText>
-				<reportElement style="etiqueta-texto" positionType="Float" x="0" y="15" width="92" height="15" uuid="52909027-a1a1-47f3-8293-b6c5fd2587d9">
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-				</reportElement>
-				<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0">
-					<pen lineWidth="0.0"/>
-				</box>
-				<textElement verticalAlignment="Middle">
-					<font size="8" isBold="true"/>
 					<paragraph leftIndent="4"/>
 				</textElement>
-				<text><![CDATA[DIRECCIÓN:]]></text>
-			</staticText>
+				<textFieldExpression><![CDATA["<b>CI/RUC:</b> " + $F{identificacionComprador}]]></textFieldExpression>
+			</textField>
 			<textField textAdjust="StretchHeight">
-				<reportElement style="etiqueta-texto" positionType="Float" x="92" y="15" width="276" height="15" uuid="18f394f7-923f-4021-96ba-ba396fb49477"/>
+				<reportElement style="etiqueta-texto" positionType="Float" x="1" y="15" width="554" height="15" uuid="09e2d456-fee0-4cdb-85f1-a7219d82c2e7">
+					<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+				</reportElement>
 				<box>
 					<pen lineWidth="0.0"/>
 				</box>
-				<textElement verticalAlignment="Middle">
+				<textElement verticalAlignment="Middle" markup="html">
 					<font size="8"/>
-					<paragraph leftIndent="2"/>
+					<paragraph leftIndent="4"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{direccionCliente}]]></textFieldExpression>
+				<textFieldExpression><![CDATA["<b>DIRECCIÓN:</b> " + $F{direccionComprador}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement style="etiqueta-texto" positionType="Float" x="92" y="30" width="78" height="15" uuid="eed07d9e-a07a-4531-bc64-41fab678ac6c">
+				<reportElement style="etiqueta-texto" positionType="Float" x="0" y="30" width="272" height="15" uuid="c45e7470-e685-4bf1-85c9-9db534672ab1">
 					<property name="com.jaspersoft.studio.unit.y" value="px"/>
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
 				</reportElement>
 				<box>
 					<pen lineWidth="0.0"/>
 				</box>
-				<textElement>
+				<textElement markup="html">
 					<font size="8"/>
-					<paragraph leftIndent="2"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{fechaEmision}]]></textFieldExpression>
-			</textField>
-			<staticText>
-				<reportElement style="etiqueta-texto" positionType="Float" x="0" y="30" width="92" height="15" uuid="0f873e25-8416-4dc9-abc0-1fa1714578f5">
-					<property name="com.jaspersoft.studio.unit.y" value="px"/>
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-				</reportElement>
-				<box>
-					<pen lineWidth="0.0"/>
-				</box>
-				<textElement verticalAlignment="Middle">
-					<font size="8" isBold="true"/>
 					<paragraph leftIndent="4"/>
 				</textElement>
-				<text><![CDATA[FECHA:]]></text>
-			</staticText>
-			<staticText>
-				<reportElement style="etiqueta-texto" positionType="Float" x="368" y="15" width="92" height="15" uuid="3697dc5a-e6d1-4f49-8639-ff216fcf78ac"/>
-				<box>
-					<pen lineWidth="0.0"/>
-				</box>
-				<textElement verticalAlignment="Middle">
-					<font size="8" isBold="true"/>
-					<paragraph leftIndent="4"/>
-				</textElement>
-				<text><![CDATA[TELÉFONO:]]></text>
-			</staticText>
-			<textField>
-				<reportElement style="etiqueta-texto" positionType="Float" x="460" y="15" width="95" height="15" uuid="6f813257-7c6e-40cd-9364-f36bc938ba6b">
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-				</reportElement>
-				<box>
-					<pen lineWidth="0.0"/>
-				</box>
-				<textElement verticalAlignment="Middle">
-					<font size="8"/>
-					<paragraph leftIndent="2"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{telefonoCliente}]]></textFieldExpression>
+				<textFieldExpression><![CDATA["<b>FECHA DE EMISIÓN:</b> " + $F{fechaEmision}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement style="etiqueta-texto" positionType="Float" x="92" y="45" width="78" height="15" uuid="93f3785a-ba83-46d6-9bb4-f69712ebff51">
+				<reportElement style="etiqueta-texto" positionType="Float" x="410" y="30" width="145" height="15" uuid="ed30d001-11b5-4ebf-9a11-b4793899a7dd">
 					<property name="com.jaspersoft.studio.unit.y" value="px"/>
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+					<printWhenExpression><![CDATA[!$F{guiaRemision}.isEmpty()]]></printWhenExpression>
 				</reportElement>
 				<box>
 					<pen lineWidth="0.0"/>
 				</box>
-				<textElement>
+				<textElement markup="html">
 					<font size="8"/>
-					<paragraph leftIndent="2"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{ordenTrabajo}]]></textFieldExpression>
-			</textField>
-			<staticText>
-				<reportElement style="etiqueta-texto" positionType="Float" x="0" y="45" width="92" height="15" uuid="d72cf63a-fc33-450e-9174-2a86183e62b6">
-					<property name="com.jaspersoft.studio.unit.y" value="px"/>
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-				</reportElement>
-				<box>
-					<pen lineWidth="0.0"/>
-				</box>
-				<textElement verticalAlignment="Middle">
-					<font size="8" isBold="true"/>
 					<paragraph leftIndent="4"/>
 				</textElement>
-				<text><![CDATA[PREFACTURA:]]></text>
-			</staticText>
+				<textFieldExpression><![CDATA["<b>Guía de Remisión:</b> " + $F{guiaRemision}]]></textFieldExpression>
+			</textField>
 		</band>
 		<band height="41">
 			<property name="com.jaspersoft.studio.unit.height" value="px"/>
