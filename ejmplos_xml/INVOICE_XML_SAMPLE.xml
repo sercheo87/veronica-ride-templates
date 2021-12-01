@@ -78,5 +78,6 @@
         <campoAdicional nombre="Impuesto ISD">15.42x</campoAdicional>
         <campoAdicional nombre="emailCliente">support@rolandopalermo.com</campoAdicional>
 		<campoAdicional nombre="Leyenda">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet</campoAdicional>
+		<!--<campoAdicional nombre="OrdenDeTrabajo">Este es un campo de prueba</campoAdicional>-->
     </infoAdicional>
 </factura>

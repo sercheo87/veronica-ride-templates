@@ -238,37 +238,29 @@
 					<pen lineWidth="1.0" lineColor="#4FB7CD"/>
 				</graphicElement>
 			</rectangle>
-			<staticText>
-				<reportElement style="etiqueta-texto" positionType="Float" x="280" y="120" width="59" height="15" uuid="da905723-ea84-4105-9af9-1efdf1590dd6">
-					<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
-				</reportElement>
-				<textElement verticalAlignment="Middle">
-					<font size="8" isBold="true"/>
-					<paragraph leftIndent="4"/>
-				</textElement>
-				<text><![CDATA[AMBIENTE:]]></text>
-			</staticText>
 			<textField>
 				<reportElement style="etiqueta-texto" positionType="Float" x="280" y="40" width="275" height="20" uuid="03d61612-b92e-4c75-b80b-c9af4f9288be">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="10" isBold="true"/>
+					<font size="12" isBold="true"/>
 					<paragraph leftIndent="4"/>
 				</textElement>
 				<textFieldExpression><![CDATA["N°:  " + $F{estab} + "-" + $F{ptoEmi}+"-"+$F{secuencial}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement style="etiqueta-texto" positionType="Float" x="339" y="135" width="216" height="15" uuid="d78814b6-157e-4f21-b5c7-3a20c424e672"/>
-				<textElement verticalAlignment="Middle">
+				<reportElement style="etiqueta-texto" positionType="Float" x="280" y="140" width="275" height="15" uuid="d78814b6-157e-4f21-b5c7-3a20c424e672">
+					<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle" markup="html">
 					<font size="8"/>
-					<paragraph leftIndent="2"/>
+					<paragraph leftIndent="4"/>
 				</textElement>
-				<textFieldExpression><![CDATA["1".equals($F{tipoEmision}) ? "NORMAL" : "INDISPONIBILIDAD DEL SISTEMA"]]></textFieldExpression>
+				<textFieldExpression><![CDATA["<b>EMISIÓN:</b> " + ("1".equals($F{tipoEmision}) ? "NORMAL" : "INDISPONIBILIDAD DEL SISTEMA")]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement style="etiqueta-texto" positionType="Float" x="280" y="60" width="275" height="15" uuid="b25df320-4490-4e3a-8b2a-2d33630b0155">
+				<reportElement style="etiqueta-texto" positionType="Float" x="280" y="65" width="275" height="15" uuid="b25df320-4490-4e3a-8b2a-2d33630b0155">
 					<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
 				</reportElement>
 				<textElement verticalAlignment="Middle">
@@ -278,33 +270,25 @@
 				<text><![CDATA[NÚMERO DE AUTORIZACIÓN:]]></text>
 			</staticText>
 			<textField>
-				<reportElement style="etiqueta-texto" positionType="Float" x="280" y="200" width="275" height="15" uuid="26bfc542-c117-422c-b603-deb5b7fec169"/>
+				<reportElement style="etiqueta-texto" positionType="Float" x="280" y="205" width="275" height="15" uuid="26bfc542-c117-422c-b603-deb5b7fec169"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8"/>
 					<paragraph leftIndent="2"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{claveAcceso}]]></textFieldExpression>
 			</textField>
-			<staticText>
-				<reportElement style="etiqueta-texto" positionType="Float" x="280" y="135" width="59" height="15" uuid="581d46a1-64f5-464d-80f7-fbe0d83ed2ae">
+			<textField>
+				<reportElement positionType="Float" x="280" y="125" width="275" height="15" uuid="d9c459a5-4629-4915-bc3f-0d97fd76a906">
 					<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
 				</reportElement>
-				<textElement verticalAlignment="Middle">
-					<font size="8" isBold="true"/>
+				<textElement verticalAlignment="Middle" markup="html">
+					<font size="8"/>
 					<paragraph leftIndent="4"/>
 				</textElement>
-				<text><![CDATA[EMISIÓN:]]></text>
-			</staticText>
-			<textField>
-				<reportElement positionType="Float" x="339" y="120" width="216" height="15" uuid="d9c459a5-4629-4915-bc3f-0d97fd76a906"/>
-				<textElement verticalAlignment="Middle">
-					<font size="8"/>
-					<paragraph leftIndent="2"/>
-				</textElement>
-				<textFieldExpression><![CDATA["1".equals($F{ambiente}) ? "PRUEBAS":"PRODUCCIÓN"]]></textFieldExpression>
+				<textFieldExpression><![CDATA["<b>AMBIENTE:</b> " + ("1".equals($F{ambiente}) ? "PRUEBAS":"PRODUCCIÓN")]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement style="etiqueta-texto" positionType="Float" x="280" y="105" width="275" height="15" uuid="116f7fd7-2bdd-490d-a953-004f0844d2df">
+				<reportElement style="etiqueta-texto" positionType="Float" x="280" y="110" width="275" height="15" uuid="116f7fd7-2bdd-490d-a953-004f0844d2df">
 					<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
 				</reportElement>
 				<textElement verticalAlignment="Middle">
@@ -325,7 +309,7 @@
 				<text><![CDATA[FACTURA]]></text>
 			</staticText>
 			<componentElement>
-				<reportElement positionType="Float" stretchType="RelativeToTallestObject" mode="Opaque" x="284" y="170" width="267" height="30" forecolor="#013870" backcolor="#FFFFFF" uuid="88cad088-c9af-4457-b25d-d9dcfd97ecd8">
+				<reportElement positionType="Float" mode="Opaque" x="284" y="175" width="267" height="30" forecolor="#013870" backcolor="#FFFFFF" uuid="88cad088-c9af-4457-b25d-d9dcfd97ecd8">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
@@ -334,7 +318,7 @@
 				</jr:Code128>
 			</componentElement>
 			<staticText>
-				<reportElement style="etiqueta-texto" positionType="Float" x="280" y="150" width="275" height="15" uuid="d09c53dd-f9ea-4895-bb29-4f61e337b484"/>
+				<reportElement style="etiqueta-texto" positionType="Float" x="280" y="155" width="275" height="15" uuid="d09c53dd-f9ea-4895-bb29-4f61e337b484"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8" isBold="true"/>
 					<paragraph rightIndent="2"/>
@@ -342,7 +326,7 @@
 				<text><![CDATA[CLAVE DE ACCESO]]></text>
 			</staticText>
 			<textField>
-				<reportElement style="etiqueta-texto" positionType="Float" x="280" y="75" width="275" height="15" uuid="b23dc576-5377-45ee-86f8-475010529cbb">
+				<reportElement style="etiqueta-texto" positionType="Float" x="280" y="80" width="275" height="15" uuid="b23dc576-5377-45ee-86f8-475010529cbb">
 					<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
 				</reportElement>
 				<textElement verticalAlignment="Middle">
@@ -352,7 +336,7 @@
 				<textFieldExpression><![CDATA[$P{numeroAutorizacion}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement style="etiqueta-texto" positionType="Float" x="280" y="90" width="275" height="15" uuid="fe6db6e3-0c10-4eee-abb1-3dd3a131b55b">
+				<reportElement style="etiqueta-texto" positionType="Float" x="280" y="95" width="275" height="15" uuid="fe6db6e3-0c10-4eee-abb1-3dd3a131b55b">
 					<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
 				</reportElement>
 				<textElement verticalAlignment="Middle">
@@ -536,7 +520,7 @@
 				</reportElement>
 			</rectangle>
 			<textField textAdjust="StretchHeight">
-				<reportElement style="etiqueta-texto" x="1" y="0" width="439" height="15" forecolor="#000000" uuid="b9d72008-2535-4c36-89a7-15cf86e35c03">
+				<reportElement style="etiqueta-texto" x="0" y="0" width="439" height="15" forecolor="#000000" uuid="b9d72008-2535-4c36-89a7-15cf86e35c03">
 					<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
 					<property name="com.jaspersoft.studio.unit.rightIndent" value="px"/>
 				</reportElement>
@@ -547,20 +531,21 @@
 				<textFieldExpression><![CDATA["<b>RAZÓN SOCIAL/NOMBRES Y APELLIDOS:</b> " + $F{razonSocialComprador}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement style="etiqueta-texto" positionType="Float" x="440" y="0" width="115" height="15" uuid="cc3bf496-87ea-4fd0-bc22-44fcdd2a2b92">
+				<reportElement style="etiqueta-texto" positionType="Float" x="439" y="0" width="115" height="15" uuid="cc3bf496-87ea-4fd0-bc22-44fcdd2a2b92">
 					<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+					<property name="com.jaspersoft.studio.unit.rightIndent" value="px"/>
 				</reportElement>
 				<box>
 					<pen lineWidth="0.0"/>
 				</box>
-				<textElement verticalAlignment="Middle" markup="html">
+				<textElement textAlignment="Right" verticalAlignment="Middle" markup="html">
 					<font size="8"/>
-					<paragraph leftIndent="4"/>
+					<paragraph leftIndent="0" rightIndent="4"/>
 				</textElement>
 				<textFieldExpression><![CDATA["<b>CI/RUC:</b> " + $F{identificacionComprador}]]></textFieldExpression>
 			</textField>
 			<textField textAdjust="StretchHeight">
-				<reportElement style="etiqueta-texto" positionType="Float" x="1" y="15" width="554" height="15" uuid="18f394f7-923f-4021-96ba-ba396fb49477">
+				<reportElement style="etiqueta-texto" positionType="Float" x="0" y="15" width="554" height="15" uuid="18f394f7-923f-4021-96ba-ba396fb49477">
 					<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
 				</reportElement>
 				<box>
@@ -592,14 +577,15 @@
 					<property name="com.jaspersoft.studio.unit.y" value="px"/>
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 					<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+					<property name="com.jaspersoft.studio.unit.rightIndent" value="px"/>
 					<printWhenExpression><![CDATA[!$F{guiaRemision}.isEmpty()]]></printWhenExpression>
 				</reportElement>
 				<box>
 					<pen lineWidth="0.0"/>
 				</box>
-				<textElement markup="html">
+				<textElement textAlignment="Right" markup="html">
 					<font size="8"/>
-					<paragraph leftIndent="4"/>
+					<paragraph leftIndent="0" rightIndent="4"/>
 				</textElement>
 				<textFieldExpression><![CDATA["<b>Guía de Remisión:</b> " + $F{guiaRemision}]]></textFieldExpression>
 			</textField>
