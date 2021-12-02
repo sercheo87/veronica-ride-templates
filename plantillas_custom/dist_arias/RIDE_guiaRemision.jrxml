@@ -4,6 +4,7 @@
 	<property name="ireport.zoom" value="1.401975597925575"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="251"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="DataAdapter2.xml"/>
 	<style name="etiqueta-texto" hTextAlign="Left" hImageAlign="Left" vTextAlign="Middle" vImageAlign="Middle" isBlankWhenNull="true">
 		<paragraph leftIndent="2"/>
 	</style>
