@@ -481,6 +481,7 @@
 						<reportElement positionType="Float" x="0" y="90" width="272" height="15" isRemoveLineWhenBlank="true" uuid="3ab56f5d-1383-479e-aecc-9ef4a1122abd">
 							<property name="com.jaspersoft.studio.unit.height" value="px"/>
 							<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+							<printWhenExpression><![CDATA[!$F{obligadoContabilidad}.isEmpty()]]></printWhenExpression>
 						</reportElement>
 						<textElement verticalAlignment="Middle" markup="html">
 							<font size="8"/>
@@ -891,8 +892,9 @@
 								<textFieldExpression><![CDATA["<b>Número de Autorización:</b> " + ($F{numAutDocSustento}.isEmpty()?"":$F{numAutDocSustento})]]></textFieldExpression>
 							</textField>
 							<textField textAdjust="StretchHeight">
-								<reportElement style="etiqueta-texto" x="0" y="0" width="390" height="15" uuid="1ea596c5-20bf-424b-8216-7e02d46e35cb">
+								<reportElement style="etiqueta-texto" x="0" y="0" width="390" height="15" isRemoveLineWhenBlank="true" uuid="1ea596c5-20bf-424b-8216-7e02d46e35cb">
 									<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+									<printWhenExpression><![CDATA[!$F{codDocSustento}.isEmpty()]]></printWhenExpression>
 								</reportElement>
 								<textElement markup="html">
 									<font size="8"/>
@@ -901,8 +903,9 @@
 								<textFieldExpression><![CDATA["<b>Comprobante de Venta:</b> " + ($P{hmapTiposDocumentos}.get($F{codDocSustento}).toString().concat("   ").concat($F{numDocSustento}))]]></textFieldExpression>
 							</textField>
 							<textField>
-								<reportElement style="etiqueta-texto" x="390" y="0" width="165" height="15" uuid="6f54a065-2c9c-4596-85a4-390bb4d52729">
+								<reportElement style="etiqueta-texto" x="390" y="0" width="165" height="15" isRemoveLineWhenBlank="true" uuid="6f54a065-2c9c-4596-85a4-390bb4d52729">
 									<property name="com.jaspersoft.studio.unit.rightIndent" value="px"/>
+									<printWhenExpression><![CDATA[!$F{fechaEmisionDocSustento}.isEmpty()]]></printWhenExpression>
 								</reportElement>
 								<textElement textAlignment="Right" markup="html">
 									<font size="8"/>

@@ -4,7 +4,7 @@
 	<property name="ireport.zoom" value="2.4157650000000195"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
-	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="DataAdapter.xml"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="FACT-01.xml"/>
 	<style name="etiqueta-texto" hTextAlign="Left" hImageAlign="Left" vTextAlign="Middle" vImageAlign="Middle" isBlankWhenNull="true">
 		<paragraph leftIndent="2"/>
 	</style>
@@ -232,8 +232,8 @@
 	<field name="colorVehiculo" class="java.lang.String">
 		<fieldDescription><![CDATA[/factura/infoAdicional/campoAdicional[@nombre='ColorVehiculo']/text()]]></fieldDescription>
 	</field>
-	<field name="ordenTrabajo" class="java.lang.String">
-		<fieldDescription><![CDATA[/factura/infoAdicional/campoAdicional[@nombre='OrdenDeTrabajo']/text()]]></fieldDescription>
+	<field name="prefactura" class="java.lang.String">
+		<fieldDescription><![CDATA[/factura/infoAdicional/campoAdicional[@nombre='Prefactura']/text()]]></fieldDescription>
 	</field>
 	<field name="placaVehiculo" class="java.lang.String">
 		<fieldDescription><![CDATA[/factura/infoAdicional/campoAdicional[@nombre='PlacaVehiculo']/text()]]></fieldDescription>
@@ -573,6 +573,7 @@
 					<propertyExpression name="net.sf.jasperreports.style.box.right.pen.lineColor"><![CDATA[$P{color}]]></propertyExpression>
 					<propertyExpression name="net.sf.jasperreports.style.box.top.pen.lineColor"><![CDATA[$P{color}]]></propertyExpression>
 					<propertyExpression name="net.sf.jasperreports.style.pen.lineColor"><![CDATA[$P{color}]]></propertyExpression>
+					<propertyExpression name="net.sf.jasperreports.style.forecolor"><![CDATA[$P{color}]]></propertyExpression>
 				</reportElement>
 				<box>
 					<pen lineWidth="1.0"/>
@@ -603,7 +604,7 @@
 					<textFieldExpression><![CDATA["<b>CI/RUC:</b> " + $F{identificacionComprador}]]></textFieldExpression>
 				</textField>
 				<textField textAdjust="StretchHeight">
-					<reportElement style="etiqueta-texto" positionType="Float" x="0" y="15" width="555" height="15" uuid="09e2d456-fee0-4cdb-85f1-a7219d82c2e7">
+					<reportElement style="etiqueta-texto" positionType="Float" x="0" y="15" width="380" height="15" uuid="09e2d456-fee0-4cdb-85f1-a7219d82c2e7">
 						<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
 					</reportElement>
 					<box>
@@ -653,7 +654,7 @@
 						<property name="com.jaspersoft.studio.unit.x" value="px"/>
 						<property name="com.jaspersoft.studio.unit.width" value="px"/>
 						<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
-						<printWhenExpression><![CDATA[!$F{ordenTrabajo}.isEmpty()]]></printWhenExpression>
+						<printWhenExpression><![CDATA[!$F{prefactura}.isEmpty()]]></printWhenExpression>
 					</reportElement>
 					<box>
 						<pen lineWidth="0.0"/>
@@ -662,7 +663,22 @@
 						<font size="8"/>
 						<paragraph leftIndent="4"/>
 					</textElement>
-					<textFieldExpression><![CDATA["<b>PREFACTURA:</b> " + $F{ordenTrabajo}]]></textFieldExpression>
+					<textFieldExpression><![CDATA["<b>PREFACTURA:</b> " + $F{prefactura}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="etiqueta-texto" x="440" y="15" width="115" height="15" uuid="44b0c890-d5cd-454c-b2b4-0378cea9c0a9">
+						<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+						<property name="com.jaspersoft.studio.unit.rightIndent" value="px"/>
+						<printWhenExpression><![CDATA[!$F{telefonoCliente}.isEmpty()]]></printWhenExpression>
+					</reportElement>
+					<box>
+						<pen lineWidth="0.0"/>
+					</box>
+					<textElement textAlignment="Right" verticalAlignment="Middle" markup="html">
+						<font size="8"/>
+						<paragraph leftIndent="0" rightIndent="4"/>
+					</textElement>
+					<textFieldExpression><![CDATA["<b>Teléfono:</b> " + $F{telefonoCliente}]]></textFieldExpression>
 				</textField>
 			</frame>
 		</band>
