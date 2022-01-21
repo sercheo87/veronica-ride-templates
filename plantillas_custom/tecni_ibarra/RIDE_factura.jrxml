@@ -243,6 +243,9 @@
 	<field name="direccionCliente" class="java.lang.String">
 		<fieldDescription><![CDATA[/factura/infoAdicional/campoAdicional[@nombre='DireccionCliente']/text()]]></fieldDescription>
 	</field>
+	<field name="regimenRimpe" class="java.lang.String">
+		<fieldDescription><![CDATA[infoTributaria/contribuyenteRimpe]]></fieldDescription>
+	</field>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -509,6 +512,18 @@
 					<textFieldExpression><![CDATA[$F{dirMatriz}]]></textFieldExpression>
 				</textField>
 			</frame>
+			<textField>
+				<reportElement positionType="Float" x="0" y="252" width="272" height="15" isRemoveLineWhenBlank="true" uuid="eb1a89c8-ae06-42d5-bc15-445892669e8a">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+					<printWhenExpression><![CDATA[!$F{regimenRimpe}.isEmpty()]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle" markup="html">
+					<font size="8" isBold="true"/>
+					<paragraph leftIndent="4"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{regimenRimpe}.toUpperCase()]]></textFieldExpression>
+			</textField>
 		</band>
 		<band height="60">
 			<rectangle radius="0">

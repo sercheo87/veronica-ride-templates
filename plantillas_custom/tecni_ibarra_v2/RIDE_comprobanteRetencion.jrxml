@@ -193,6 +193,9 @@
 	<field name="leyenda" class="java.lang.String">
 		<fieldDescription><![CDATA[/factura/infoAdicional/campoAdicional[@nombre='Leyenda']/text()]]></fieldDescription>
 	</field>
+	<field name="regimenRimpe" class="java.lang.String">
+		<fieldDescription><![CDATA[infoTributaria/contribuyenteRimpe]]></fieldDescription>
+	</field>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -482,13 +485,25 @@
 						<reportElement positionType="Float" x="0" y="120" width="272" height="15" isRemoveLineWhenBlank="true" uuid="70656c2f-2c84-4a75-a598-a891236fa699">
 							<property name="com.jaspersoft.studio.unit.height" value="px"/>
 							<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
-							<printWhenExpression><![CDATA[false]]></printWhenExpression>
+							<printWhenExpression><![CDATA[!$F{regimenMicroempresas}.isEmpty()]]></printWhenExpression>
 						</reportElement>
 						<textElement verticalAlignment="Middle" markup="html">
 							<font size="8" isBold="true"/>
 							<paragraph leftIndent="4"/>
 						</textElement>
 						<textFieldExpression><![CDATA[$F{regimenMicroempresas}.toUpperCase()]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement positionType="Float" x="0" y="120" width="272" height="15" isRemoveLineWhenBlank="true" uuid="0f11e0d9-d566-4bb1-898d-b393f296d132">
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+							<printWhenExpression><![CDATA[!$F{regimenRimpe}.isEmpty()]]></printWhenExpression>
+						</reportElement>
+						<textElement verticalAlignment="Middle" markup="html">
+							<font size="8" isBold="true"/>
+							<paragraph leftIndent="4"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{regimenRimpe}.toUpperCase()]]></textFieldExpression>
 					</textField>
 				</frame>
 			</frame>

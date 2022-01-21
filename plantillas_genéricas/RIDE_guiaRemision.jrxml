@@ -230,6 +230,9 @@
 	<field name="regimenMicroempresas" class="java.lang.String">
 		<fieldDescription><![CDATA[infoTributaria/regimenMicroempresas]]></fieldDescription>
 	</field>
+	<field name="regimenRimpe" class="java.lang.String">
+		<fieldDescription><![CDATA[infoTributaria/contribuyenteRimpe]]></fieldDescription>
+	</field>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -512,6 +515,18 @@
 							<paragraph leftIndent="4"/>
 						</textElement>
 						<textFieldExpression><![CDATA[$F{regimenMicroempresas}.toUpperCase()]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement positionType="Float" x="0" y="120" width="272" height="15" isRemoveLineWhenBlank="true" uuid="e548f2f5-e57b-4a1b-b134-4351f030aa4c">
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+							<printWhenExpression><![CDATA[!$F{regimenRimpe}.isEmpty()]]></printWhenExpression>
+						</reportElement>
+						<textElement verticalAlignment="Middle" markup="html">
+							<font size="8" isBold="true"/>
+							<paragraph leftIndent="4"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{regimenRimpe}.toUpperCase()]]></textFieldExpression>
 					</textField>
 				</frame>
 			</frame>

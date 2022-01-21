@@ -220,11 +220,14 @@
 	<field name="regimenMicroempresas" class="java.lang.String">
 		<fieldDescription><![CDATA[infoTributaria/regimenMicroempresas]]></fieldDescription>
 	</field>
+	<field name="regimenRimpe" class="java.lang.String">
+		<fieldDescription><![CDATA[infoTributaria/contribuyenteRimpe]]></fieldDescription>
+	</field>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
 	<detail>
-		<band height="250" splitType="Immediate">
+		<band height="252" splitType="Immediate">
 			<rectangle radius="0">
 				<reportElement positionType="Float" stretchType="RelativeToBandHeight" mode="Transparent" x="280" y="0" width="275" height="240" uuid="0936725f-5624-4235-8f59-de6f12a7d85c">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
@@ -491,7 +494,7 @@
 						<textFieldExpression><![CDATA["<b>AGENTE DE RETENCIÓN RESOLUCIÓN N°: </b>" + $F{agenteRetencion}]]></textFieldExpression>
 					</textField>
 					<textField>
-						<reportElement positionType="Float" x="0" y="120" width="272" height="15" isRemoveLineWhenBlank="true" uuid="affcd531-1270-4ee9-b45d-8e92f0b8957b">
+						<reportElement positionType="Float" x="0" y="120" width="272" height="15" isRemoveLineWhenBlank="true" uuid="57dd8b73-d228-4f99-a76c-c5e2b1ab8ff8">
 							<property name="com.jaspersoft.studio.unit.height" value="px"/>
 							<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
 							<printWhenExpression><![CDATA[!$F{regimenMicroempresas}.isEmpty()]]></printWhenExpression>
@@ -501,6 +504,18 @@
 							<paragraph leftIndent="4"/>
 						</textElement>
 						<textFieldExpression><![CDATA[$F{regimenMicroempresas}.toUpperCase()]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement positionType="Float" x="0" y="120" width="272" height="15" isRemoveLineWhenBlank="true" uuid="59d4f225-4231-4658-b312-cdcde1f33c84">
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+							<printWhenExpression><![CDATA[!$F{regimenRimpe}.isEmpty()]]></printWhenExpression>
+						</reportElement>
+						<textElement verticalAlignment="Middle" markup="html">
+							<font size="8" isBold="true"/>
+							<paragraph leftIndent="4"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{regimenRimpe}.toUpperCase()]]></textFieldExpression>
 					</textField>
 				</frame>
 			</frame>
