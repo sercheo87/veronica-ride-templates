@@ -540,18 +540,6 @@
 						<textFieldExpression><![CDATA["<b>AGENTE DE RETENCIÓN RESOLUCIÓN N°: </b>NAC-DNCRASC20-" + $F{agenteRetencion}]]></textFieldExpression>
 					</textField>
 					<textField>
-						<reportElement positionType="Float" x="0" y="120" width="272" height="15" isRemoveLineWhenBlank="true" uuid="b10e7e52-4a92-47de-8099-509ea8b538f6">
-							<property name="com.jaspersoft.studio.unit.height" value="px"/>
-							<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
-							<printWhenExpression><![CDATA[!$F{regimenMicroempresas}.isEmpty()]]></printWhenExpression>
-						</reportElement>
-						<textElement verticalAlignment="Middle" markup="html">
-							<font size="8" isBold="true"/>
-							<paragraph leftIndent="4"/>
-						</textElement>
-						<textFieldExpression><![CDATA[$F{regimenMicroempresas}.toUpperCase()]]></textFieldExpression>
-					</textField>
-					<textField>
 						<reportElement positionType="Float" x="0" y="120" width="272" height="15" isRemoveLineWhenBlank="true" uuid="4ac25f9f-1299-4bfc-9a5c-68287b05ba02">
 							<property name="com.jaspersoft.studio.unit.height" value="px"/>
 							<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
