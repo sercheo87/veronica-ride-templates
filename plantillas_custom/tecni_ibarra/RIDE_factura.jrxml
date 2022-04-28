@@ -246,6 +246,9 @@
 	<field name="regimenRimpe" class="java.lang.String">
 		<fieldDescription><![CDATA[infoTributaria/contribuyenteRimpe]]></fieldDescription>
 	</field>
+	<field name="calificacionArtesanal" class="java.lang.String">
+		<fieldDescription><![CDATA[/factura/infoAdicional/campoAdicional[@nombre='Calificacion Artesanal Nro']/text()]]></fieldDescription>
+	</field>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -403,7 +406,7 @@
 				<text><![CDATA[OBLIGADO A LLEVAR CONTABILIDAD:]]></text>
 			</staticText>
 			<textField>
-				<reportElement style="etiqueta-texto" x="283" y="4" width="269" height="20" uuid="2fa7940b-12c0-48ff-8cea-c5f70d35b195"/>
+				<reportElement style="etiqueta-texto" x="283" y="3" width="269" height="20" uuid="2fa7940b-12c0-48ff-8cea-c5f70d35b195"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="10"/>
 					<paragraph leftIndent="2"/>
@@ -456,16 +459,6 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$P{email}]]></textFieldExpression>
 			</textField>
-			<staticText>
-				<reportElement style="etiqueta-texto" x="283" y="24" width="269" height="16" forecolor="#707070" uuid="b0500b38-2f04-4107-b3dc-63098f8cc620">
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-				</reportElement>
-				<textElement textAlignment="Center" verticalAlignment="Top">
-					<font size="10" isBold="false"/>
-					<paragraph leftIndent="2"/>
-				</textElement>
-				<text><![CDATA[Calificación Artesanal Nº 082590 ]]></text>
-			</staticText>
 			<staticText>
 				<reportElement style="etiqueta-texto" positionType="Float" x="0" y="99" width="274" height="54" uuid="42734a89-61aa-437c-86fa-f3e30b716f3e">
 					<property name="com.jaspersoft.studio.unit.y" value="px"/>
@@ -523,6 +516,18 @@
 					<paragraph leftIndent="4"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{regimenRimpe}.toUpperCase()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="etiqueta-texto" x="283" y="23" width="269" height="18" uuid="1c8522b3-8fb2-49e3-bad8-fc98de46119d">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+					<paragraph leftIndent="2"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Calificación Artesanal Nº " + $F{calificacionArtesanal}]]></textFieldExpression>
 			</textField>
 		</band>
 		<band height="60">
