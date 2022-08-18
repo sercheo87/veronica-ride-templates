@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.16.0.final using JasperReports Library version 6.16.0-48579d909b7943b64690c65c71e07e0b80981928  -->
+<!-- Created with Jaspersoft Studio version 6.20.0.final using JasperReports Library version 6.20.0-2bc7ab61c56f459e8176eb05c7705e145cd400ad  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RIDE_comprobanteRetencion" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="23078fe1-b005-44ae-8dc0-7a1396cac66c">
 	<property name="ireport.zoom" value="2.1961500000000087"/>
 	<property name="ireport.x" value="205"/>
@@ -23,6 +23,7 @@
 		<parameter name="hmapTiposDocumentos" class="java.util.HashMap"/>
 		<parameter name="hmapTiposImpuestos" class="java.util.HashMap"/>
 		<parameter name="colorDetalle" class="java.lang.String"/>
+		<parameter name="decimals" class="java.lang.String"/>
 		<queryString language="SQL">
 			<![CDATA[]]>
 		</queryString>
@@ -103,6 +104,7 @@
 	<parameter name="color" class="java.lang.String"/>
 	<parameter name="footer" class="java.lang.String"/>
 	<parameter name="withLogo" class="java.lang.String"/>
+	<parameter name="decimals" class="java.lang.String"/>
 	<queryString language="xPath">
 		<![CDATA[/comprobanteRetencion]]>
 	</queryString>
@@ -671,7 +673,7 @@
 			<componentElement>
 				<reportElement positionType="Float" stretchType="RelativeToTallestObject" mode="Opaque" x="0" y="0" width="555" height="15" uuid="6e8702e3-c4c9-4d7a-a8c5-6ce0f58ab498"/>
 				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical" ignoreWidth="true">
-					<datasetRun subDataset="impuestosDS" uuid="8617d4fd-042d-4463-963f-811a6aeb10a6">
+					<datasetRun subDataset="impuestosDS" uuid="8a2a19e5-187f-4b01-a72f-ba783f8c9355">
 						<datasetParameter name="periodoFiscal">
 							<datasetParameterExpression><![CDATA[$F{periodoFiscal}]]></datasetParameterExpression>
 						</datasetParameter>
@@ -683,6 +685,9 @@
 						</datasetParameter>
 						<datasetParameter name="colorDetalle">
 							<datasetParameterExpression><![CDATA[$P{color}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="decimals">
+							<datasetParameterExpression><![CDATA[$P{decimals}]]></datasetParameterExpression>
 						</datasetParameter>
 						<dataSourceExpression><![CDATA[((net.sf.jasperreports.engine.data.JRXmlDataSource)$P{REPORT_DATA_SOURCE}).subDataSource("/comprobanteRetencion/impuestos/impuesto")]]></dataSourceExpression>
 					</datasetRun>
@@ -745,7 +750,7 @@
 							<textElement textAlignment="Right">
 								<paragraph leftIndent="4" rightIndent="4"/>
 							</textElement>
-							<textFieldExpression><![CDATA[java.lang.String.format("%,.2f",new java.math.BigDecimal($F{baseImponible}==null?"0":$F{baseImponible}))]]></textFieldExpression>
+							<textFieldExpression><![CDATA[java.lang.String.format($P{decimals},new java.math.BigDecimal($F{baseImponible}==null?"0":$F{baseImponible}))]]></textFieldExpression>
 						</textField>
 						<textField textAdjust="StretchHeight">
 							<reportElement style="etiqueta-celda" positionType="Float" stretchType="RelativeToTallestObject" x="346" y="0" width="53" height="15" uuid="4ef9a732-e943-4e70-906c-78d698d20533">
@@ -788,7 +793,7 @@
 							<textElement textAlignment="Right">
 								<paragraph leftIndent="4" rightIndent="4"/>
 							</textElement>
-							<textFieldExpression><![CDATA[java.lang.String.format("%,.2f",new java.math.BigDecimal($F{valorRetenido}==null?"0":$F{valorRetenido}))]]></textFieldExpression>
+							<textFieldExpression><![CDATA[java.lang.String.format($P{decimals},new java.math.BigDecimal($F{valorRetenido}==null?"0":$F{valorRetenido}))]]></textFieldExpression>
 						</textField>
 						<textField>
 							<reportElement style="etiqueta-celda" positionType="Float" stretchType="RelativeToTallestObject" x="154" y="0" width="55" height="15" uuid="9a490617-0c43-43dc-bb48-45e2b9cae7eb">
@@ -836,7 +841,7 @@
 					<font size="8"/>
 					<paragraph rightIndent="4"/>
 				</textElement>
-				<textFieldExpression><![CDATA[java.lang.String.format("%,.2f",new java.math.BigDecimal($F{totalRetenido}==null?"0":$F{totalRetenido}))]]></textFieldExpression>
+				<textFieldExpression><![CDATA[java.lang.String.format($P{decimals},new java.math.BigDecimal($F{totalRetenido}==null?"0":$F{totalRetenido}))]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement style="etiqueta-texto" x="346" y="0" width="102" height="15" uuid="75dd1c37-2f9f-4b21-84b8-14973daf157f"/>
