@@ -720,7 +720,7 @@
 							<textElement>
 								<paragraph leftIndent="4"/>
 							</textElement>
-							<textFieldExpression><![CDATA[$F{cantidad}]]></textFieldExpression>
+							<textFieldExpression><![CDATA[$F{cantidad}.trim()]]></textFieldExpression>
 						</textField>
 						<textField textAdjust="StretchHeight">
 							<reportElement style="etiqueta-celda" positionType="Float" stretchType="RelativeToTallestObject" x="100" y="0" width="310" height="15" uuid="42333ed6-cac0-4b76-9377-79828d446fd6">
@@ -753,7 +753,7 @@
 							<textElement textAlignment="Right">
 								<paragraph rightIndent="4"/>
 							</textElement>
-							<textFieldExpression><![CDATA[java.lang.String.format($P{decimals},new java.math.BigDecimal($F{precioUnitario}==null?"0":$F{precioUnitario}))]]></textFieldExpression>
+							<textFieldExpression><![CDATA[$F{precioUnitario}.trim()]]></textFieldExpression>
 						</textField>
 						<textField textAdjust="StretchHeight">
 							<reportElement style="etiqueta-celda" positionType="Float" stretchType="RelativeToTallestObject" x="490" y="0" width="65" height="15" uuid="12ffab3e-b109-46fa-af11-0e384d791104">
@@ -769,7 +769,7 @@
 							<textElement textAlignment="Right">
 								<paragraph rightIndent="4"/>
 							</textElement>
-							<textFieldExpression><![CDATA[java.lang.String.format($P{decimals},new java.math.BigDecimal($F{precioTotalSinImpuesto}==null?"0":$F{precioTotalSinImpuesto}))]]></textFieldExpression>
+							<textFieldExpression><![CDATA[java.lang.String.format("%,.2f",new java.math.BigDecimal($F{precioTotalSinImpuesto}==null?"0":$F{precioTotalSinImpuesto}))]]></textFieldExpression>
 						</textField>
 						<textField>
 							<reportElement style="etiqueta-celda" positionType="Float" stretchType="RelativeToTallestObject" x="50" y="0" width="50" height="15" uuid="3faa6002-8d52-49ad-9cf6-dd65986dc10b">
@@ -880,7 +880,7 @@
 					<textElement textAlignment="Right">
 						<paragraph rightIndent="4"/>
 					</textElement>
-					<textFieldExpression><![CDATA[java.lang.String.format($P{decimals},new java.math.BigDecimal($F{totalDescuento}==null?"0":$F{totalDescuento}))]]></textFieldExpression>
+					<textFieldExpression><![CDATA[java.lang.String.format("%,.2f",new java.math.BigDecimal($F{totalDescuento}==null?"0":$F{totalDescuento}))]]></textFieldExpression>
 				</textField>
 				<staticText>
 					<reportElement style="etiqueta-celda" x="368" y="0" width="122" height="15" uuid="fe1c588f-f56c-4727-9437-b03ee8a98588">
@@ -985,7 +985,7 @@
 					<textElement textAlignment="Right">
 						<paragraph rightIndent="4"/>
 					</textElement>
-					<textFieldExpression><![CDATA[java.lang.String.format($P{decimals},new java.math.BigDecimal($F{subtotalNoObjeto}==null?"0":$F{subtotalNoObjeto}))]]></textFieldExpression>
+					<textFieldExpression><![CDATA[java.lang.String.format("%,.2f",new java.math.BigDecimal($F{subtotalNoObjeto}==null?"0":$F{subtotalNoObjeto}))]]></textFieldExpression>
 				</textField>
 				<textField isBlankWhenNull="true">
 					<reportElement style="etiqueta-celda" x="490" y="60" width="65" height="15" uuid="47dcea5a-ef99-4a00-b930-a608abaddd6d">
@@ -999,7 +999,7 @@
 					<textElement textAlignment="Right">
 						<paragraph rightIndent="4"/>
 					</textElement>
-					<textFieldExpression><![CDATA[java.lang.String.format($P{decimals},new java.math.BigDecimal($F{totalSinImpuestos}==null?"0":$F{totalSinImpuestos}))]]></textFieldExpression>
+					<textFieldExpression><![CDATA[java.lang.String.format("%,.2f",new java.math.BigDecimal($F{totalSinImpuestos}==null?"0":$F{totalSinImpuestos}))]]></textFieldExpression>
 				</textField>
 				<textField isBlankWhenNull="true">
 					<reportElement style="etiqueta-celda" x="490" y="105" width="65" height="15" uuid="3efeaf5b-ae71-4bef-a0fb-5317050e311f">
@@ -1013,7 +1013,7 @@
 					<textElement textAlignment="Right">
 						<paragraph rightIndent="4"/>
 					</textElement>
-					<textFieldExpression><![CDATA[java.lang.String.format($P{decimals},new java.math.BigDecimal($F{iva12}==null?"0":$F{iva12}))]]></textFieldExpression>
+					<textFieldExpression><![CDATA[java.lang.String.format("%,.2f",new java.math.BigDecimal($F{iva12}==null?"0":$F{iva12}))]]></textFieldExpression>
 				</textField>
 				<staticText>
 					<reportElement style="etiqueta-celda" x="368" y="120" width="122" height="15" uuid="a6c5ddfd-d9e0-4a61-8046-07d8c3429299">
@@ -1042,7 +1042,7 @@
 					<textElement textAlignment="Right">
 						<paragraph rightIndent="4"/>
 					</textElement>
-					<textFieldExpression><![CDATA[java.lang.String.format($P{decimals},new java.math.BigDecimal($F{subtotal12}==null?"0":$F{subtotal12}))]]></textFieldExpression>
+					<textFieldExpression><![CDATA[java.lang.String.format("%,.2f",new java.math.BigDecimal($F{subtotal12}==null?"0":$F{subtotal12}))]]></textFieldExpression>
 				</textField>
 				<staticText>
 					<reportElement style="etiqueta-celda" x="368" y="60" width="122" height="15" uuid="d1c0bd94-0a34-4d0d-922d-a7e59fdd91e4">
@@ -1071,7 +1071,7 @@
 					<textElement textAlignment="Right">
 						<paragraph rightIndent="4"/>
 					</textElement>
-					<textFieldExpression><![CDATA[java.lang.String.format($P{decimals},new java.math.BigDecimal($F{subtotal0}==null?"0":$F{subtotal0}))]]></textFieldExpression>
+					<textFieldExpression><![CDATA[java.lang.String.format("%,.2f",new java.math.BigDecimal($F{subtotal0}==null?"0":$F{subtotal0}))]]></textFieldExpression>
 				</textField>
 				<textField isBlankWhenNull="true">
 					<reportElement style="etiqueta-celda" x="490" y="45" width="65" height="15" uuid="f4763e1e-7cce-43a5-8590-c07d741f4128">
@@ -1085,7 +1085,7 @@
 					<textElement textAlignment="Right">
 						<paragraph rightIndent="4"/>
 					</textElement>
-					<textFieldExpression><![CDATA[java.lang.String.format($P{decimals},new java.math.BigDecimal($F{subtotalExcento}==null?"0":$F{subtotalExcento}))]]></textFieldExpression>
+					<textFieldExpression><![CDATA[java.lang.String.format("%,.2f",new java.math.BigDecimal($F{subtotalExcento}==null?"0":$F{subtotalExcento}))]]></textFieldExpression>
 				</textField>
 				<textField isBlankWhenNull="true">
 					<reportElement style="etiqueta-celda" x="490" y="120" width="65" height="15" uuid="3e29b535-2664-4326-977d-54a2beceef01">
@@ -1099,7 +1099,7 @@
 					<textElement textAlignment="Right">
 						<paragraph rightIndent="4"/>
 					</textElement>
-					<textFieldExpression><![CDATA[java.lang.String.format($P{decimals},new java.math.BigDecimal($F{irbpnr}==null?"0":$F{irbpnr}))]]></textFieldExpression>
+					<textFieldExpression><![CDATA[java.lang.String.format("%,.2f",new java.math.BigDecimal($F{irbpnr}==null?"0":$F{irbpnr}))]]></textFieldExpression>
 				</textField>
 				<staticText>
 					<reportElement style="etiqueta-celda" x="368" y="90" width="122" height="15" uuid="3d9cd7d5-319d-4de5-a086-a9502b7b729e">
@@ -1128,7 +1128,7 @@
 					<textElement textAlignment="Right">
 						<paragraph rightIndent="4"/>
 					</textElement>
-					<textFieldExpression><![CDATA[java.lang.String.format($P{decimals},new java.math.BigDecimal($F{valorModificacion}==null?"0":$F{valorModificacion}))]]></textFieldExpression>
+					<textFieldExpression><![CDATA[java.lang.String.format("%,.2f",new java.math.BigDecimal($F{valorModificacion}==null?"0":$F{valorModificacion}))]]></textFieldExpression>
 				</textField>
 				<staticText>
 					<reportElement style="etiqueta-celda" x="368" y="135" width="122" height="15" uuid="8983183f-9ad6-4b94-8bde-f2d8d4721abb">
@@ -1157,7 +1157,7 @@
 					<textElement textAlignment="Right">
 						<paragraph rightIndent="4"/>
 					</textElement>
-					<textFieldExpression><![CDATA[java.lang.String.format($P{decimals},new java.math.BigDecimal($F{ice}==null?"0":$F{ice}))]]></textFieldExpression>
+					<textFieldExpression><![CDATA[java.lang.String.format("%,.2f",new java.math.BigDecimal($F{ice}==null?"0":$F{ice}))]]></textFieldExpression>
 				</textField>
 			</frame>
 		</band>

@@ -750,7 +750,7 @@
 							<textElement textAlignment="Right">
 								<paragraph leftIndent="4" rightIndent="4"/>
 							</textElement>
-							<textFieldExpression><![CDATA[java.lang.String.format($P{decimals},new java.math.BigDecimal($F{baseImponible}==null?"0":$F{baseImponible}))]]></textFieldExpression>
+							<textFieldExpression><![CDATA[java.lang.String.format("%,.2f",new java.math.BigDecimal($F{baseImponible}==null?"0":$F{baseImponible}))]]></textFieldExpression>
 						</textField>
 						<textField textAdjust="StretchHeight">
 							<reportElement style="etiqueta-celda" positionType="Float" stretchType="RelativeToTallestObject" x="346" y="0" width="53" height="15" uuid="4ef9a732-e943-4e70-906c-78d698d20533">
@@ -793,7 +793,7 @@
 							<textElement textAlignment="Right">
 								<paragraph leftIndent="4" rightIndent="4"/>
 							</textElement>
-							<textFieldExpression><![CDATA[java.lang.String.format($P{decimals},new java.math.BigDecimal($F{valorRetenido}==null?"0":$F{valorRetenido}))]]></textFieldExpression>
+							<textFieldExpression><![CDATA[java.lang.String.format("%,.2f",new java.math.BigDecimal($F{valorRetenido}==null?"0":$F{valorRetenido}))]]></textFieldExpression>
 						</textField>
 						<textField>
 							<reportElement style="etiqueta-celda" positionType="Float" stretchType="RelativeToTallestObject" x="154" y="0" width="55" height="15" uuid="9a490617-0c43-43dc-bb48-45e2b9cae7eb">
@@ -841,7 +841,7 @@
 					<font size="8"/>
 					<paragraph rightIndent="4"/>
 				</textElement>
-				<textFieldExpression><![CDATA[java.lang.String.format($P{decimals},new java.math.BigDecimal($F{totalRetenido}==null?"0":$F{totalRetenido}))]]></textFieldExpression>
+				<textFieldExpression><![CDATA[java.lang.String.format("%,.2f",new java.math.BigDecimal($F{totalRetenido}==null?"0":$F{totalRetenido}))]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement style="etiqueta-texto" x="346" y="0" width="102" height="15" uuid="75dd1c37-2f9f-4b21-84b8-14973daf157f"/>
