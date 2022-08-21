@@ -122,7 +122,7 @@
 	<parameter name="withLogo" class="java.lang.String"/>
 	<parameter name="decimals" class="java.lang.String"/>
 	<queryString language="xPath">
-		<![CDATA[/comprobanteRetencion/docsSustento/docSustento/numDocSustento]]>
+		<![CDATA[/comprobanteRetencion]]>
 	</queryString>
 	<field name="ruc" class="java.lang.String">
 		<fieldDescription><![CDATA[infoTributaria/ruc]]></fieldDescription>
@@ -203,7 +203,7 @@
 		<fieldDescription><![CDATA[sum(/comprobanteRetencion/impuestos/impuesto/valorRetenido)]]></fieldDescription>
 	</field>
 	<field name="codDocSustentoV2" class="java.lang.String">
-		<fieldDescription><![CDATA[docsSustento/docSustento/codSustento]]></fieldDescription>
+		<fieldDescription><![CDATA[docsSustento/docSustento/codDocSustento]]></fieldDescription>
 	</field>
 	<field name="numDocSustentoV2" class="java.lang.String">
 		<fieldDescription><![CDATA[docsSustento/docSustento/numDocSustento]]></fieldDescription>
