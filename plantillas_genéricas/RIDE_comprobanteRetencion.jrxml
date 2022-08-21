@@ -235,6 +235,9 @@
 	<field name="totalDocsSustento" class="java.lang.Integer">
 		<fieldDescription><![CDATA[count(/comprobanteRetencion/docsSustento/docSustento)]]></fieldDescription>
 	</field>
+	<field name="totalRetenidoV2" class="java.lang.String">
+		<fieldDescription><![CDATA[sum(/comprobanteRetencion/docsSustento/docSustento/retenciones/retencion/valorRetenido)]]></fieldDescription>
+	</field>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -1041,7 +1044,7 @@
 					<font size="8"/>
 					<paragraph rightIndent="4"/>
 				</textElement>
-				<textFieldExpression><![CDATA[java.lang.String.format("%,.2f",new java.math.BigDecimal($F{totalRetenido}==null?"0":$F{totalRetenido}))]]></textFieldExpression>
+				<textFieldExpression><![CDATA[java.lang.String.format("%,.2f",(new java.math.BigDecimal($F{totalRetenido}==null?"0":$F{totalRetenido})).add(new java.math.BigDecimal($F{totalRetenidoV2}==null?"0":$F{totalRetenidoV2})))]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement style="etiqueta-texto" x="346" y="0" width="102" height="15" uuid="75dd1c37-2f9f-4b21-84b8-14973daf157f"/>
